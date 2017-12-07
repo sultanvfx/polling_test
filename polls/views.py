@@ -1,14 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+# from django.template import loader, RequestContext
 
 # Create your views here.
 from models import Question
 
 
 def index(request):
-    latest_questions = Question.objects.order_by("-publish_date")[:5]  # get first 5 questions, ordered by publish_date & latest should come first in output & hence the hyphen sign.
-    output = ', '.join(q.question_str for q in latest_questions)
-    return HttpResponse("<h1>Welcome to the Landing Page !!!</h1><hr><h2>Below are the questions:</h2><br>%s" % output)
+    latest_questions = Question.objects.order_by("-publish_date")[:5]  # get first 5 questions, order by publish_date & latest should come first in output & hence the hyphen sign.
+    # --- Either use the below 3 lines:
+    # template = loader.get_template("polls/index.html")
+    # context = RequestContext(request, {"latest_questions_list": latest_questions})
+    # return HttpResponse(template.render(context))
+    # --- Or use below code which is the shortcut:
+    context = {"latest_questions_list": latest_questions}
+    return render(request, "polls/index.html", context)
 
 
 def detail(request, question_id):
