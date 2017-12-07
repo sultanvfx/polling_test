@@ -1,0 +1,17 @@
+{% extends 'polls/base.html'%}
+
+{% block title %}Question {{question_obj.id}} in detail !!{% endblock %}
+
+{% block body %}
+    {% if question_obj.question_str != None %}
+        <h3>{{ question_obj.question_str }}</h3>
+        <ul>
+        {% for each_choice in question_obj.choice_set.all %}
+            <li>{{each_choice.choice_str}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Question is not formed for id={{question_obj.id}}</p>
+    {% endif %}
+    <a href="{% url 'index_page' %}">&lt;Back</a>
+{% endblock %}

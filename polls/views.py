@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 # from django.template import loader, RequestContext
 
@@ -18,7 +19,10 @@ def index(request):
 
 
 def detail(request, question_id):
-    return HttpResponse("Detail description of the Question #%s is:" % question_id)
+    # q_obj = Question.objects.get(id=question_id)
+    q_obj = get_object_or_404(Question, pk=question_id)  # Note: When we use this function we get 'Not Found: The requested URL /polls/3/ was not found on this server' when URL doesn't exists.
+    context = {"question_obj": q_obj}
+    return render(request, "polls/detail.html", context)
 
 
 def results(request, question_id):
