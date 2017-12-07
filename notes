@@ -1,0 +1,35 @@
+#Step1:
+From the below link:
+https://getbootstrap.com/docs/3.3/getting-started/#download
+
+& Download and install (ie. copy-paste) below files in your static directory:
+https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
+    bootstrap/
+    ├── css/
+    │   └── bootstrap.min.css
+    ├── js/
+    │   └── bootstrap.min.js
+
+& download the fonts from below found link (this is as i couldn't download bootstrap from the getbootstrap.com):
+https://github.com/Mobirise/Free-Bootstrap-Template/tree/master/assets/bootstrap/fonts
+There will be below 5 files namely:
+    bootstrap/
+    └── fonts/
+        ├── glyphicons-halflings-regular.eot
+        ├── glyphicons-halflings-regular.svg
+        ├── glyphicons-halflings-regular.ttf
+        ├── glyphicons-halflings-regular.woff
+        └── glyphicons-halflings-regular.woff2
+
+#Step2:
+Open the template of bootstrap from:
+https://getbootstrap.com/docs/3.3/getting-started/#examples
+and select the 'Jumbotron' template:
+https://getbootstrap.com/docs/3.3/examples/jumbotron/
+
+#Step3:
+Open the 'View Source' & read the code there and accordingly paste it into your base.html file
+
+
+

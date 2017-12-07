@@ -10,11 +10,11 @@
 
 li a{
     font-size: 20px;
-    color: blue;
+    /* color: blue; */
 }
 
 body{
-    background: white url("images/background.jpg") no-repeat;
-    background-repeat: no-repeat;
-    background-size: 100%;
+    /* background: white url("images/background.jpg") no-repeat; */
+    /* background-repeat: no-repeat; */
+    /* background-size: 100%; */
 }

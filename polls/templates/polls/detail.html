@@ -16,8 +16,10 @@
                 <label for="choice{{forloop.counter}}"> {{each_choice.choice_str}}</label>
             <br>
             {% endfor %}
-            <input type="submit" value="vote"/>
+            <br>
+            <input type="submit" value="vote" class="btn btn-success"/>
         </form>
-    <a href="{% url 'polls_namespace:index_page' %}">&lt;Back</a>
+    <br>
+    <a href="{% url 'polls_namespace:index_page' %}">&lt;Back to Question List</a>
 
 {% endblock %}

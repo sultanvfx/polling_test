@@ -2,22 +2,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>
         {% block title %}
         {% endblock %}
     </title>
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
     <!--<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 </head>
 <body>
-    <h1>Welcome to Landing page !!!</h1>
+    <p>Welcome to Landing page !!!</p>
     <hr>
-    {% block body %}
-    {% endblock %}
 
+    {% include 'polls/header.html' %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <!--<h1>Hello, world!</h1>-->
+            <!--<p>Welcome to polling website</p>-->
+            <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
+            {% block body %}
+            {% endblock %}
+
+      </div>
+    </div>
 
     {% include 'polls/footer.html' %}
+
 
     <!--<script src="https://code.jquery.com/jquery.js"></script>-->
     <!--<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>-->
