@@ -6,7 +6,9 @@ from models import Question
 
 
 def index(request):
-    return HttpResponse("Welcome to the Landing Page !!!")
+    latest_questions = Question.objects.order_by("-publish_date")[:5]  # get first 5 questions, ordered by publish_date & latest should come first in output & hence the hyphen sign.
+    output = ', '.join(q.question_str for q in latest_questions)
+    return HttpResponse("<h1>Welcome to the Landing Page !!!</h1><hr><h2>Below are the questions:</h2><br>%s" % output)
 
 
 def detail(request, question_id):
