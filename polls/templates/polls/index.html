@@ -6,7 +6,7 @@
     {% if latest_questions_list %}
         <ul>
             {% for each_question in latest_questions_list %}
-                <li><a href="/polls/{{each_question.id}}"><b>{{each_question.question_str}}</b></a></li>
+                <li><a href="{% url 'polls_namespace:detail_page' each_question.id %}"><b>{{each_question.question_str}}</b></a></li>
             {% endfor %}
         </ul>
     {% else %}

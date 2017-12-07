@@ -1,0 +1,16 @@
+{% extends 'polls/base.html'%}
+
+{% block title %}Question {{question_obj.id}} in detail !!{% endblock %}
+
+{% block body %}
+    <h3>{{ question_obj.question_str }}</h3>
+
+    <ul>
+        {% for each_choice in question_obj.choice_set.all %}
+            <li>{{each_choice.choice_str}} --> {{each_choice.votes_int}} vote{{each_choice.votes_int|pluralize}}.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'polls_namespace:detail_page' question_obj.id%}">&lt;Vote Again?</a>
+
+{% endblock %}

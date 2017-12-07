@@ -18,5 +18,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^polls/', include('polls.urls')),
+    url(r'^polls/', include('polls.urls', namespace="polls_namespace")),
+    # Note: Namespace added which will be used in templates so that we can differentiate between multiple apps having same template name.
+    # For example: index.html template's name inside polls app is "index" & same template "index.html" having same name "index" could be present in some other app.for
+    # So differentiate between apps, we give a namespace to the app.
 ]

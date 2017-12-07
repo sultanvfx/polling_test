@@ -3,15 +3,21 @@
 {% block title %}Question {{question_obj.id}} in detail !!{% endblock %}
 
 {% block body %}
-    {% if question_obj.question_str != None %}
-        <h3>{{ question_obj.question_str }}</h3>
-        <ul>
-        {% for each_choice in question_obj.choice_set.all %}
-            <li>{{each_choice.choice_str}}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>Question is not formed for id={{question_obj.id}}</p>
-    {% endif %}
-    <a href="{% url 'index_page' %}">&lt;Back</a>
+    <h3>{{ question_obj.question_str }}</h3>
+
+        {% if error_message %}
+        <p><strong>{{error_message}}</strong></p>
+        {% endif %}
+
+        <form action="{% url 'polls_namespace:vote_page' question_obj.id %}" method="POST">
+            {% csrf_token %} <!-- Its a Rule that when you modifying data, you need to pass csrf_token -->
+            {% for each_choice in question_obj.choice_set.all %}
+                <input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{each_choice.id}}"/>
+                <label for="choice{{forloop.counter}}"> {{each_choice.choice_str}}</label>
+            <br>
+            {% endfor %}
+            <input type="submit" value="vote"/>
+        </form>
+    <a href="{% url 'polls_namespace:index_page' %}">&lt;Back</a>
+
 {% endblock %}
