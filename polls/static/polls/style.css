@@ -1,0 +1,20 @@
+.footerCSS {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      background-color: #efefef;
+      text-align: center;
+    }
+
+li a{
+    font-size: 20px;
+    color: blue;
+}
+
+body{
+    background: white url("images/background.jpg") no-repeat;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
